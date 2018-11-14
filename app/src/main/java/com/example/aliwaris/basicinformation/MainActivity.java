@@ -2,6 +2,7 @@ package com.example.aliwaris.basicinformation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
       TextView name,rollnumber,email;
       ImageView image;
       Button next,previous;
+      CardView cardViewprev,cardviewnext;
       int incrementer=0;
 
     @Override
@@ -32,14 +34,23 @@ public class MainActivity extends AppCompatActivity {
         rollnumber.setText(rollnumbers[incrementer]);
         email.setText(emails[incrementer]);
         image.setImageResource(images[incrementer]);
-
+        cardViewprev=findViewById(R.id.prev);
+        cardviewnext=findViewById(R.id.next);
+        cardViewprev.setVisibility(View.INVISIBLE);
     }
     public void onNext(View v){
+
          if (incrementer>=4){
+
+             cardviewnext.setVisibility(View.INVISIBLE);
+             cardViewprev.setVisibility(View.VISIBLE);
              Toast.makeText(getApplicationContext(),"images has been completed",Toast.LENGTH_SHORT).show();
          }
          else{
+             cardviewnext.setVisibility(View.VISIBLE);
+             cardViewprev.setVisibility(View.VISIBLE);
              incrementer++;
+
              name.setText(names[incrementer]);
              rollnumber.setText(rollnumbers[incrementer]);
              email.setText(emails[incrementer]);
@@ -48,10 +59,16 @@ public class MainActivity extends AppCompatActivity {
          }
     }
     public void onPrev(View v){
+
         if (incrementer<=0){
+            cardViewprev.setVisibility(View.INVISIBLE);
+            cardviewnext.setVisibility(View.VISIBLE);
             Toast.makeText(getApplicationContext(),"images has been completed",Toast.LENGTH_SHORT).show();
         }
         else{
+
+            cardViewprev.setVisibility(View.VISIBLE);
+            cardviewnext.setVisibility(View.VISIBLE);
             incrementer--;
             name.setText(names[incrementer]);
             rollnumber.setText(rollnumbers[incrementer]);

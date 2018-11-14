@@ -12,6 +12,8 @@
         android:layout_width="144dp"
         android:layout_height="131dp"
         android:layout_marginBottom="44dp"
+        android:clickable="false"
+        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -63,70 +65,87 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
 
+        android:layout_marginBottom="148dp"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutnext"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="55dp"
+    <android.support.v7.widget.CardView
+        android:id="@+id/prev"
+        android:layout_width="104dp"
 
-
-        android:layout_height="30dp"
-        android:layout_marginBottom="36dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
+
         android:layout_marginStart="16dp"
 
-        android:foreground="@drawable/leftarrow"
-        android:foregroundTint="#fff"
-        android:orientation="vertical"
+
+        android:onClick="onPrev"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayoutnext"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/prev"
+        app:layout_constraintEnd_toStartOf="@+id/next"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        >
+        <LinearLayout
             android:layout_width="match_parent"
-
             android:layout_height="match_parent"
-            android:foreground="@drawable/prev"
-            android:onClick="onPrev"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            ></android.support.v7.widget.CardView>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/prev"
+            android:padding="10dp"
+            android:src="@drawable/leftarrow"
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutnext"
-        android:layout_width="55dp"
 
 
-        android:layout_height="30dp"
-        android:layout_marginBottom="36dp"
-        android:layout_marginEnd="32dp"
-        android:foreground="@drawable/rightarrow"
+            />
+        </LinearLayout>
 
-        android:foregroundTint="#fff"
-        android:orientation="vertical"
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/next"
+        android:layout_width="104dp"
+
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+
+        android:onClick="onNext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/next"
+        <LinearLayout
             android:layout_width="match_parent"
-
             android:layout_height="match_parent"
-            android:foreground="@drawable/nex"
-            android:onClick="onNext"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            ></android.support.v7.widget.CardView>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/nex"
+                android:padding="10dp"
+                android:src="@drawable/rightarrow"
 
-    </LinearLayout>
+
+
+                />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
 
 </android.support.constraint.ConstraintLayout>
